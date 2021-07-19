@@ -1,0 +1,106 @@
+{
+  "name": "@zcorky/moment",
+  "version": "0.0.0",
+  "description": "Single Package Template",
+  "main": "lib/index.js",
+  "repository": "https://github.com/zcorky/moment",
+  "homepage": "https://github.com/zcorky/moment",
+  "bugs": {
+    "url": "https://github.com/zcorky/moment/issues"
+  },
+  "keywords": [
+    "zcorky"
+  ],
+  "author": "Zero <uniquecolesmith@gmail.com> (https://moeover.com)",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "test": "jest -w 1",
+    "fmt": "eslint src/**/*.{ts,tsx} --fix && prettier --write src/**/{*.ts,*.tsx}",
+    "commit": "cz",
+    "clean": "rimraf -rf lib",
+    "coverage": "codecov",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.3.3",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "@zcorky/tsconfig": "^0.0.3",
+    "codecov": "^3.8.2",
+    "commitizen": "^4.2.4",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "dayjs": "^1.7.8",
+    "eslint": "^7.31.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "lint-staged": "^11.0.1",
+    "moment": "^2.29.1",
+    "prettier": "^2.3.2",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^27.0.3",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  },
+  "files": [
+    "lib/"
+  ],
+  "jest": {
+    "roots": [
+      "test"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "test/.*\\.spec\\.(ts|tsx)$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 90,
+        "lines": 90,
+        "statements": -10
+      }
+    }
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "echo 'lint stage run'",
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{json.css,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@zcorky/is": "^1.0.7"
+  }
+}
